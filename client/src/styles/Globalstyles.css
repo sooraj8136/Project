@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: "Urbanist", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.home {
+    text-align: center;
+    margin-top: 150px;
+}
+
+.login {
+    text-align: center;
+    margin-top: 150px;
+}
+
+.footer-sec {
+    background-color: rgb(143, 143, 143);
+    margin-top: 20px;
+    padding: 10px 0px;
+}
+
+
+.final-font {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.signup {
+    text-align: center;
+}
+
+.register {
+    text-align: center;
+}
+
+.nav-sec-2 {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+    border-bottom: 1px solid black;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 6px 8px;
+    font-size: 14px;
+    background-color: transparent;
+}
+
+.search-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+}
+
+.first-header-sec {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+}
+
+#imageTag {
+    align-items: center;
+}
+
+.cart{
+    text-align: center;
+}
