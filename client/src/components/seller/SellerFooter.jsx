@@ -2,13 +2,13 @@ import React from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useSelector } from 'react-redux';
 
-function Footer() {
+function SellerFooter() {
 
     const { darkMode } = useSelector((state)=> state.mode)
     console.log(darkMode)
 
-    return (    
-        <footer className="main-footer">
+  return (
+    <footer className="main-footer">
             <div className="container">
                 <section className="footer py-4">
                     <div className="row text-center text-md-start">
@@ -41,13 +41,8 @@ function Footer() {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/seller/login" className={darkMode ? "text-black" : "text-white footer-title footer-text"}>
-                                        Seller login
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/admin/login" className={darkMode ? "text-black" : "text-white footer-title footer-text"}>
-                                        Admin login
+                                    <a href="/" className={darkMode ? "text-black" : "text-white footer-title footer-text"}>
+                                        Seller Help
                                     </a>
                                 </li>
                             </ul>
@@ -242,7 +237,7 @@ function Footer() {
                 </section>
             </div>
         </footer>
-    )
+  )
 }
 
-export default Footer
+export default SellerFooter

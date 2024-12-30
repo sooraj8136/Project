@@ -30,7 +30,8 @@ function KidsLimitedEdition() {
                                     top: "50%",
                                     transform: "translateY(-70%)",
                                 }}>
-                                <h2 style={{ fontWeight: "bold", fontSize: "30px" }}>HELLO KITTY AND FRIENDS X H&M</h2>
+                                <h2 style={{ fontWeight: "bold", fontSize: "30px" }}>Hello Kityy</h2>
+
                                 <div style={{
                                     backgroundColor: "rgba(0, 0, 0, 0.5)",
                                     textAlign: "center",

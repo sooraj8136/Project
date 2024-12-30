@@ -16,7 +16,7 @@ function DenimMen() {
                             }}
                         >
                             <img
-                                src="https://image.hm.com/content/dam/global_campaigns/season_01/men/start-page-assets/w50/edits/MS11E3-Edits-w50-16x9.jpg?imwidth=4800"
+                                src="https://image.hm.com/content/dam/global_campaigns/season_01/men/ms11ca1/scroll/MS11CA1-dress-up-your-denim-LP1-CPD-v2.jpg?imwidth=4800"
                                 className="img-fluid"
                                 alt="Sample"
                                 style={{
@@ -38,7 +38,7 @@ function DenimMen() {
                                 }}>
                                     <ul className="preppy-btn" style={{ listStyleType: "none", padding: 0, margin: 0 }}>
                                         <li style={{ cursor: "pointer", color: "white" }}>
-                                            <Nav.Link href="/Iconic_graphics" >Shop now</Nav.Link>
+                                            <Nav.Link href="/Denim" >Shop now</Nav.Link>
                                         </li>
                                     </ul>
                                 </div>

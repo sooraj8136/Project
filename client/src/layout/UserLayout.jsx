@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react'
 import Header from '../components/user/Header'
 import Footer from '../components/user/Footer'
 import { Outlet, useLocation } from 'react-router-dom'
-import UserHeader from '../components/user/UserHeader'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { axiosInstance } from '../config/axiosInstance'
+import { clearUser, saveUser } from '../redux/features/userSlice'
+import UserHeader from '../components/user/UserHeader'
+import UserFooter from '../components/user/UserFooter'
 
 function userLayout() {
 
     const { darkMode } = useSelector((state) => state.mode)
-    console.log(darkMode)
 
     useEffect(() => {
         document.body.style.background = darkMode ? "white" : "black";
@@ -18,8 +19,7 @@ function userLayout() {
     const location = useLocation()
 
     const { isUserAuth } = useSelector((state) => state.user)
-
-
+    const dispatch =useDispatch()
 
     const checkUser = async () => {
         try {
@@ -27,11 +27,13 @@ function userLayout() {
                 method: "GET",
                 url: "/user/check-user",
             });
-            // setIsUserAuth(true)
+          
             console.log(response, "=====checkUser");
+            dispatch(saveUser())
         } catch (error) {
-            console.log(error);
-            // setIsUserAuth(true)
+            console.log(error); 
+            dispatch(clearUser())
+          
         }
     };
 
@@ -41,14 +43,15 @@ function userLayout() {
         checkUser();
     }, [location.pathname]);
 
-
     return (
         <>
-            {isUserAuth ? <UserHeader /> : <Header />}
+            {isUserAuth ? <UserHeader /> : <Header />}  
             <Outlet />
-            <Footer />
+            {isUserAuth ? <UserFooter /> : <Footer />} 
         </>
     )
 }
 
 export default userLayout
+
+

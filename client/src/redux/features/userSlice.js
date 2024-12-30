@@ -13,7 +13,7 @@ export const userSlice = createSlice({
             state.isUserAuth = true
             state.userData = action.payload
         },
-        clearUser: (state, action) => {
+        clearUser: (state) => {
             state.isUserAuth = false
             state.userData = {};
         }

@@ -1,32 +1,32 @@
 import React from "react";
-import { useForm } from "react-hook-form"
+import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../config/axiosInstance";
 import toast from "react-hot-toast";
 
-const Login = () => {
+const AdminLogin = () => {
   const { darkMode } = useSelector((state) => state.mode);
 
   const { register, handleSubmit } = useForm();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const user = {
-    login_api: "/user/login",
-    profile_route: "/user/profile",
-    signup_route: "/signup",
-};
+  const admin = {
+    login_api: "/admin/admin-login", // Endpoint for admin login
+    profile_route: "/admin/profile", // Redirect to dashboard after login
+    signup_route: "/admin/signup", // Link to admin registration page
+  };
 
   const onSubmit = async (data) => {
     try {
       console.log("Data  :- ", data);
 
-      const response = await axiosInstance({ method: "POST", url: user.login_api, data });
+      const response = await axiosInstance({ method: "POST", url: admin.login_api, data });
       console.log(response, "====response");
-      toast.success("Log-in success");
-      navigate(user.profile_route);
+      toast.success("Admin log-in success");
+      navigate(admin.profile_route); // Navigate to the admin dashboard
     } catch (error) {
-      toast.error("Log-in failed");
+      toast.error("Admin log-in failed");
       console.log(error);
     }
   };
@@ -34,14 +34,9 @@ const Login = () => {
   return (
     <>
       <div className={darkMode ? "text-black" : "text-white"}>
-        <h1 className="text-center">sign in </h1>
+        <h1 className="text-center">Admin Sign In</h1>
       </div>
       <br />
-      <div className={darkMode ? "text-black" : "text-white"}>
-        <p className="text-center">
-          Become a member — don’t miss out on deals, offers, discounts, and bonus vouchers.
-        </p>
-      </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="input-sec text-center">
           <label
@@ -82,8 +77,9 @@ const Login = () => {
         </div>
         <div className="text-center mb-4">
           <Link
-            to="/forgot-password"
-            className={darkMode ? "text-black" : "text-white forgot-password"}>
+            to="/admin/forgot-password"
+            className={darkMode ? "text-black" : "text-white forgot-password"}
+          >
             Forgot password?
           </Link>
         </div>
@@ -93,9 +89,9 @@ const Login = () => {
         <br />
       </form>
       <div className="d-flex justify-content-center mt-4">
-        <button className="signup-first-btn text-center my-4 w-90" style={{ maxWidth: "400px", width: "90%" }} >
-          <Link to={user.signup_route} className={darkMode ? "text-black" : "text-black "} >
-            Become a member
+        <button className="signup-first-btn text-center my-4 w-90" style={{ maxWidth: "400px", width: "90%" }}>
+          <Link to={admin.signup_route} className={darkMode ? "text-black" : "text-black"}>
+            Register admin
           </Link>
         </button>
       </div>
@@ -103,6 +99,7 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default AdminLogin;
+
 
 

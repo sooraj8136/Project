@@ -38,6 +38,8 @@ const registerAdmin = async (req, res) => {
 
         res.status(200).json({ message: "Admin created successfully", data: userData })
 
+        console.log(userData)
+
 
     } catch (error) {
         console.log(error)

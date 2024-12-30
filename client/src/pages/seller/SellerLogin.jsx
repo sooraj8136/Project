@@ -1,32 +1,32 @@
 import React from "react";
-import { useForm } from "react-hook-form"
+import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../config/axiosInstance";
 import toast from "react-hot-toast";
 
-const Login = () => {
+const SellerLogin = () => {
   const { darkMode } = useSelector((state) => state.mode);
 
   const { register, handleSubmit } = useForm();
-  const navigate = useNavigate()
+  const navigate = useNavigate();   
 
-  const user = {
-    login_api: "/user/login",
-    profile_route: "/user/profile",
-    signup_route: "/signup",
-};
+  const seller = {
+    login_api: "/seller/login-seller",
+    profile_route: "/seller/profile",
+    signup_route: "/seller/signup",
+  };
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data) => {    
     try {
       console.log("Data  :- ", data);
 
-      const response = await axiosInstance({ method: "POST", url: user.login_api, data });
+      const response = await axiosInstance({ method: "POST", url: seller.login_api, data });
       console.log(response, "====response");
-      toast.success("Log-in success");
-      navigate(user.profile_route);
+      toast.success("Seller log-in success");
+      navigate(seller.profile_route);
     } catch (error) {
-      toast.error("Log-in failed");
+      toast.error("Seller log-in failed");
       console.log(error);
     }
   };
@@ -34,12 +34,12 @@ const Login = () => {
   return (
     <>
       <div className={darkMode ? "text-black" : "text-white"}>
-        <h1 className="text-center">sign in </h1>
+        <h1 className="text-center">Seller Sign In</h1>
       </div>
       <br />
       <div className={darkMode ? "text-black" : "text-white"}>
         <p className="text-center">
-          Become a member — don’t miss out on deals, offers, discounts, and bonus vouchers.
+          Access your seller account and start managing your store today.
         </p>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -82,8 +82,9 @@ const Login = () => {
         </div>
         <div className="text-center mb-4">
           <Link
-            to="/forgot-password"
-            className={darkMode ? "text-black" : "text-white forgot-password"}>
+            to="/seller/forgot-password"
+            className={darkMode ? "text-black" : "text-white forgot-password"}
+          >
             Forgot password?
           </Link>
         </div>
@@ -94,8 +95,8 @@ const Login = () => {
       </form>
       <div className="d-flex justify-content-center mt-4">
         <button className="signup-first-btn text-center my-4 w-90" style={{ maxWidth: "400px", width: "90%" }} >
-          <Link to={user.signup_route} className={darkMode ? "text-black" : "text-black "} >
-            Become a member
+          <Link to={seller.signup_route} className={darkMode ? "text-black" : "text-black"}>
+            Become a seller
           </Link>
         </button>
       </div>
@@ -103,6 +104,4 @@ const Login = () => {
   );
 };
 
-export default Login;
-
-
+export default SellerLogin;

@@ -30,7 +30,7 @@ function KidsArrivals() {
                                     top: "50%",
                                     transform: "translateY(-70%)",
                                 }}>
-                                <h2 style={{ fontWeight: "bold", fontSize: "30px" }}>Kid's new styles</h2>
+                                <h2 style={{ fontWeight: "bold", fontSize: "30px" }}>Kid's new arrival</h2>
                                 <div style={{
                                     backgroundColor: "rgba(0, 0, 0, 0.5)",
                                     textAlign: "center",

@@ -24,7 +24,7 @@ const productchema = new mongoose.Schema(
         category: {
             type: String,
             required: true,
-            enum: ["Men", "Ladies", "Baby", "Kids", "Preppy", "Iconic_graphics", "Kidsnew", "Hello-kitty", "Babynew", "accessories"]
+            enum: ["Men", "Ladies", "Baby", "Kids", "Preppy", "Iconic_graphics", "Kidsnew", "Hello-kitty", "Babynew", "accessories", "office", "Denim"]
         },
         seller: { type: mongoose.Types.ObjectId, ref: "seller" },
     },

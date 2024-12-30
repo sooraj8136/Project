@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Nav } from 'react-bootstrap'
 
-function LadiesNew() {
+function Office() {
     return (
         <>
             <Container>
@@ -16,33 +16,23 @@ function LadiesNew() {
                             }}
                         >
                             <img
-                                src="https://media.alshaya.com/adobe/assets/urn:aaid:aem:84eb0ed2-2c2c-4b98-ae44-582719d0d02a/as/DS60F-3x2.jpg?preferwebp=true&width=750&format=jpg"
-                                className="img-fluid"
-                                alt="Sample"
-                                style={{
-                                    width: "100%",
-                                    height: "auto",
-                                }}
-                            />
+                                src="https://image.hm.com/content/dam/global_campaigns/season_01/men/start-page-assets/w50/edits/MS11E1-Edits-w50-16x9.jpg?imwidth=4800"
+                                className="img-fluid" alt="Sample" style={{ width: "100%", height: "auto", }} />
                             <div
                                 className="preppy-sec position-absolute text-white"
                                 style={{
                                     top: "50%",
-                                    // left: "10%",
                                     transform: "translateY(-70%)",
-                                }}
-                            >
-                                <h2 style={{ fontWeight: "bold", fontSize: "30px" }}>Preppy uniform</h2>
-                                <div
-                                    style={{
-                                        backgroundColor: "rgba(0, 0, 0, 0.5)",
-                                        textAlign: "center",
-                                        padding: "10px",
-                                    }}
-                                >
+                                }}>
+                                <h2 style={{ fontWeight: "bold", fontSize: "30px" }}>The office edit</h2>
+                                <div style={{
+                                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                                    textAlign: "center",
+                                    padding: "10px",
+                                }}>
                                     <ul className="preppy-btn" style={{ listStyleType: "none", padding: 0, margin: 0 }}>
                                         <li style={{ cursor: "pointer", color: "white" }}>
-                                            <Nav.Link href="/Preppy">Shop now</Nav.Link>
+                                            <Nav.Link href="/office" >Shop now</Nav.Link>
                                         </li>
                                     </ul>
                                 </div>
@@ -55,4 +45,4 @@ function LadiesNew() {
     )
 }
 
-export default LadiesNew
+export default Office

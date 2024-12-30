@@ -5,6 +5,7 @@ import LadiesProducts from '../../components/user/LadiesProducts'
 import PreppyUniform from '../../components/user/PreppyUniform'
 import { Container } from 'react-bootstrap'
 import { useSelector } from 'react-redux';
+import Office from '../../components/user/Office'
 
 function LadiesPage() {
 
@@ -22,6 +23,7 @@ function LadiesPage() {
                     </div>
                 <HomeWidget />
                 <LadiesProducts />
+                <Office/>
                 <Accessories />
                 <PreppyUniform />
                 <div className='ladies-clothing-cap'>

@@ -2,12 +2,13 @@ import React from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useSelector } from 'react-redux';
 
-function Footer() {
+function UserFooter() {
 
     const { darkMode } = useSelector((state)=> state.mode)
     console.log(darkMode)
 
-    return (    
+
+    return (
         <footer className="main-footer">
             <div className="container">
                 <section className="footer py-4">
@@ -38,16 +39,6 @@ function Footer() {
                                 <li>
                                     <a href="/" className={darkMode ? "text-black" : "text-white footer-title footer-text"}>
                                         Magazine
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/seller/login" className={darkMode ? "text-black" : "text-white footer-title footer-text"}>
-                                        Seller login
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/admin/login" className={darkMode ? "text-black" : "text-white footer-title footer-text"}>
-                                        Admin login
                                     </a>
                                 </li>
                             </ul>
@@ -99,7 +90,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <a href="/about" className={darkMode ? "text-black" : "text-white footer-title footer-text"}>
-                                    About H&M group
+                                        About H&M group
                                     </a>
                                 </li>
                                 <li>
@@ -125,7 +116,7 @@ function Footer() {
                             </ul>
                         </div>
 
-                        <div className= "col-md-3 mb-4">
+                        <div className="col-md-3 mb-4">
                             <p className={darkMode ? "text-black" : "text-white"}>
                                 Sign up now and be the first to know about exclusive offers,
                                 <br /> latest fashion news & style tips!
@@ -245,4 +236,4 @@ function Footer() {
     )
 }
 
-export default Footer
+export default UserFooter

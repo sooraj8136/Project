@@ -37,7 +37,7 @@ const register = async (req, res) => {
 
         const { password: _, ...userData } = savedUser.toObject(); 
         
-        res.status(200).json({ message: "User registered successfully", data: userData }).select("-password")
+        res.status(200).json({ message: "User registered successfully", data: userData })
 
     } catch (error) {
         console.log(error)
