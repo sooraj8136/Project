@@ -13,14 +13,14 @@ const registerAdmin = async (req, res) => {
             res.status(400).json({ message: "All fields are required" })
         }
 
-        const adminEmailExist = await adminDb.findOne({ email }).select("-password");
+        const adminEmailExist = await adminDb.findOne({ email })
 
         if (adminEmailExist) {
             return res.status(400).json({ error: "This Email already registered with another admin" });
         }
 
 
-        const adminMobileExist = await adminDb.findOne({ mobile }).select("-password");
+        const adminMobileExist = await adminDb.findOne({ mobile })
 
         if (adminMobileExist) {
             return res.status(400).json({ error: "This Mobile number already registered with another admin" });
@@ -32,9 +32,11 @@ const registerAdmin = async (req, res) => {
             name, email, mobile, role, password: adminHashedPassword, qualification
         })
 
-        const savedAdmin = await newAdmin.save()
+        const savedAdmin = await newAdmin.save() 
 
-        res.status(200).json({ message: "Admin created successfully", data: savedAdmin })
+        const { password: _, ...userData } = savedAdmin.toObject(); 
+
+        res.status(200).json({ message: "Admin created successfully", data: userData })
 
 
     } catch (error) {
@@ -56,7 +58,7 @@ const loginAdmin = async (req, res) => {
 
         if (!admin) {
             return res.status(400).json({ error: "Admin not found" });
-        }
+        } 
 
         const passwordMatch = await bcrypt.compare(password, admin.password);
 

@@ -5,7 +5,7 @@ const getAllProduct = async (req, res) => {
 
     try {
 
-        const allProduct = await productDb.find().select("title price image")
+        const allProduct = await productDb.find().select("title price image description category ")
 
         if (!allProduct) {
             res.status(400).json({ message: "Sorry, Product not recieved" })
@@ -23,21 +23,23 @@ const createProduct = async (req, res) => {
 
     try {
 
-        const { image, title, price, description } = req.body
+        const { image, title, price, description, category } = req.body
 
-        const userId = req.user.id
+        const {userId} = req.user;
 
-        console.log('reqest.file : ', req.file)
+        console.log('Request Body:', req.body);
+        console.log('Uploaded File:', req.file);
 
-        if (!title || !price || !description) {
-            return res.status(400).json({ message: "all fields are required" });                                                                                                          
+
+        if (!title || !price || !description || !category) {
+            return res.status(400).json({ message: "all fields are required" });
         }
 
         const uploadResult = await cloudinaryInstance.uploader.upload(req.file.path)
         console.log(uploadResult)
 
 
-        const newProduct = new productDb({title, price, description, image: uploadResult.url, seller: userId});
+        const newProduct = new productDb({ title, price, description, category, image: uploadResult.url, seller: userId });
         const savedProduct = await newProduct.save()
 
         res.status(200).json({ message: "New product created successfully", data: savedProduct })
@@ -110,5 +112,23 @@ const updateProduct = async (req, res) => {
     }
 }
 
+const productCategory = async (req, res) => {
 
-module.exports = { getAllProduct, createProduct, getProduct, deleteProduct, updateProduct }
+    try {
+        const { category } = req.params;
+
+        console.log(category)
+
+        const products = await productDb.find({ category });
+        res.status(200).json({ data: products })
+
+    } catch (error) {
+        console.log(error)
+        res.status(error.status || 500).json({ error: error.message || "Internal server error" })
+    }
+
+}
+
+
+
+module.exports = { getAllProduct, createProduct, getProduct, deleteProduct, updateProduct, productCategory }

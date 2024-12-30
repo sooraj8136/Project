@@ -21,6 +21,11 @@ const productchema = new mongoose.Schema(
             minLength: 10,
             maxLength: 300,
         },
+        category: {
+            type: String,
+            required: true,
+            enum: ["Men", "Ladies", "Baby", "Kids", "Preppy", "Iconic_graphics", "Kidsnew", "Hello-kitty", "Babynew", "accessories"]
+        },
         seller: { type: mongoose.Types.ObjectId, ref: "seller" },
     },
     { timestamps: true }

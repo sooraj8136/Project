@@ -168,5 +168,26 @@ const sellerLogout = async (req, res) => {
 
 }
 
+const deleteSeller = async (req, res) => { 
+    try {  
+        
+        const { sellerId } = req.params; 
 
-module.exports = { registerSeller, loginSeller, checkSeller, sellerProfile, updateSellerProfile, sellerLogout }
+        console.log("Seller Id :- ", sellerId);
+
+        const seller = await sellerDb.findByIdAndDelete(sellerId);
+
+        if (!seller) {
+            return res.status(404).json({ message: "Sorry, Seller not found" });
+        }
+
+        return res.status(200).json({ message: "Successfully deleted Seller account" });
+
+    } catch (error) {
+        console.error("Error deleting Seller:", error);
+        return res.status(error.status || 500).json({ error: error.message || "Internal server error" });
+    }
+};
+
+
+module.exports = { registerSeller, loginSeller, checkSeller, sellerProfile, updateSellerProfile, sellerLogout, deleteSeller }

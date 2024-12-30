@@ -272,7 +272,7 @@ const activateUser = async (req, res) => {
             res.status(404).json({message: "Sorry, only admin can access "})
         }
 
-        if(user.isActive){
+        if(user.isActive){ 
             res.status(404).json({message: "User is already active!"})
         }
 
@@ -290,4 +290,26 @@ const activateUser = async (req, res) => {
 }
 
 
-module.exports = { register, login, userProfile, checkUser, updateUserProfile, userLogout, deactivateUser, activateUser }    
+const deleteUser = async (req, res) => { 
+    try {
+        const { userId } = req.params;
+
+        console.log("User Id :- ", userId);
+
+        const user = await userDb.findByIdAndDelete(userId);
+
+        if (!user) {
+            return res.status(404).json({ message: "Sorry, user not found" });
+        }
+
+        return res.status(200).json({ message: "Successfully deleted User account" });
+
+    } catch (error) {
+        console.error("Error deleting user:", error);
+        return res.status(error.status || 500).json({ error: error.message || "Internal server error" });
+    }
+};
+
+
+
+module.exports = { register, login, userProfile, checkUser, updateUserProfile, userLogout, deactivateUser, activateUser, deleteUser }    

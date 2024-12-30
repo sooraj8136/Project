@@ -1,4 +1,4 @@
-const { register, login, userProfile, userLogout, checkUser, updateUserProfile, deactivateUser, activateUser } = require('../../controllers/userControllers')
+const { register, login, userProfile, userLogout, checkUser, updateUserProfile, deactivateUser, activateUser, deleteUser } = require('../../controllers/userControllers')
 const { adminAuth } = require('../../middlewares/adminAuth')
 const { userAuth } = require('../../middlewares/userAuth')
 
@@ -13,7 +13,7 @@ userRouter.get("/check-user", userAuth, checkUser)
 
 userRouter.put("/update-profile", userAuth, updateUserProfile)
 userRouter.put("/deactivate-user/:userId", adminAuth, deactivateUser)
-userRouter.put("/activate-user/:userId", adminAuth, activateUser)
-userRouter.put("/forgot-password")
+userRouter.put("/activate-user/:userId", adminAuth, activateUser) 
+userRouter.delete("/delete-user/:userId", adminAuth, deleteUser)
 
 module.exports = userRouter

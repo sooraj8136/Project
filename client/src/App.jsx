@@ -1,8 +1,11 @@
 import React from "react";
+import Home from "./pages/user/Home";
 
 const App = () => {
   return (
-    <h1 className="home">Home Page</h1>
+    <>
+      <Home />
+    </>
   );
 };
 
