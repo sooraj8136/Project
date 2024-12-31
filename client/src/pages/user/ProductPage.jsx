@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { axiosInstance } from '../../config/axiosInstance'
 import ProductCards from '../../components/user/Cards'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -12,7 +11,7 @@ function ProductPage() {
     const { darkMode } = useSelector((state) => state.mode)
     console.log(darkMode)
 
-    const [productList, error] = useFetch("/product/get-all-products")  // imported from hooks/usefetch
+    const [productList, error] = useFetch("/product/get-all-products") 
 
     return (
         <>
