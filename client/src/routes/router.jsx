@@ -123,7 +123,7 @@
 
 
 
-import UserLayout from '../layout/userLayout';
+import UserLayout from '../layout/UserLayout';
 import SellerLayout from '../layout/SellerLayout';
 import Login from '../pages/shared/Login';
 import { createBrowserRouter } from "react-router-dom";
