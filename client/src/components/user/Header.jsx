@@ -15,7 +15,7 @@ function Header() {
     return (
         <>
             <header>
-                <h2>General Header</h2>
+                {/* <h2>General Header</h2> */}
                 <Navbar
                     expand="lg"
                     className={darkMode ? "navbar navbar-expand-lg navbar-light bg-black-200" : "navbar navbar-expand-lg navbar-light bg-black"}>

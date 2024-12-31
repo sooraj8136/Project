@@ -31,7 +31,7 @@ function PreppyUniform() {
                                     transform: "translateY(-70%)",
                                 }}
                             >
-                                <h2 style={{ fontWeight: "bold", fontSize: "30px" }}>Preppy uniform</h2>
+                                <h2 style={{ fontWeight: "bold", fontSize: "30px" }}>Preppy update</h2>
                                 <div
                                     style={{
                                         backgroundColor: "rgba(0, 0, 0, 0.5)",
