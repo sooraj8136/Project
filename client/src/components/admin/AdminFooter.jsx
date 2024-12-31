@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 function AdminFooter() {
 
-    const { darkMode } = useSelector((state)=> state.mode)
+    const { darkMode } = useSelector((state)=> state.mode)   
     console.log(darkMode)
 
 
