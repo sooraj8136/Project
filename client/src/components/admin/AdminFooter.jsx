@@ -9,7 +9,7 @@ function AdminFooter() {
 
 
     return (
-        <footer className="main-footer">
+        <footer className="main-footer">   
             <div className="container">
                 <section className="footer py-4">
                     <div className="row text-center text-md-start">
